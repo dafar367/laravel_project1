@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\projectController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\courseController;
 use App\Models\project;
-
+use App\Models\course;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,3 +24,5 @@ Route::get('/contact', [Controller::class, 'contact']);
 Route::get('/myproject', [projectController::class, 'indexProject']);
 
 Route::get('/myproject/{code}', [projectController::class,'show']);
+
+Route::get('/courseproject', [courseController::class, 'indexCourse']);

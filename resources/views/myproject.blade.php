@@ -1,5 +1,6 @@
 @extends('layout.mainlayout')
 @section('title','project')
+    
 
 
 @section('main_content')
