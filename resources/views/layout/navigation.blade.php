@@ -11,7 +11,7 @@
           <a class="nav-link @if($title == "project"){{"active"}}@endif" href="/myproject">project</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link @if($title == "course"){{"active"}}@endif" href="/courseproject">Course project</a>
+          <a class="nav-link @if($title == "Courses"){{"active"}}@endif" href="/courseproject">Course project</a>
         </li>
       </ul>
 </div>

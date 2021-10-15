@@ -26,3 +26,5 @@ Route::get('/myproject', [projectController::class, 'indexProject']);
 Route::get('/myproject/{code}', [projectController::class,'show']);
 
 Route::get('/courseproject', [courseController::class, 'indexCourse']);
+
+Route::get('/courseproject/{code}', [courseController::class,'show']);

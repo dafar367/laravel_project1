@@ -12,11 +12,14 @@
 
 
         @foreach ($courses as $pro)
-            @php ($i = $loop->index)
-            @php($i++)
+            {{-- @php ($i = $loop->index) @endphp
+            @php($i++)  @endphp --}}
+            
         <tr>
-            <td>{{ $i }}</td>
-            {{-- <td>{{ $pro['code'] }}</td> --}}
+            {{-- @php
+                $lectureSize = sizeof($pro['guru'])
+            @endphp --}}
+            <td>{{$loop->index+1 }}</td>
             <td>
                 <a href="courseproject/{{$pro['code']}}">
                 {{ $pro['matkul'] }}
@@ -25,7 +28,16 @@
             <td>{{ $pro['guru'] }}</td>
             <td>{{ $pro['sks'] }}</td>
         </tr>
-   @endforeach
+
+        {{-- @foreach ($pro['guru'] as $guru)
+            <tr>
+                <td>
+                    {{$guru}}
+                </td>
+            </tr>
+        @endforeach --}}
+
+        @endforeach
     </table>
     
 @endsection

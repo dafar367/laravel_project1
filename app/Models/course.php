@@ -20,7 +20,7 @@ class course extends Model
         [
             'matkul' => 'Game Design',
             'code' => 'gameDes',
-            'guru' => 'Mr Yuwono',
+            'guru' =>'Mr Yuwono',
             'sks' => '4',
             'description' => 'mata kuliah yang mengajarkan game design'
         ],

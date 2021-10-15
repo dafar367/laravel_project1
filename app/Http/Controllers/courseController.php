@@ -9,6 +9,14 @@ class courseController extends Controller
 {
     //
 
+    public function show($code){
+        return view("showcourse",[
+            'title' =>'project',
+            'courses'=>course::dataWithCode($code)
+        ]);
+    }
+
+
     public function indexCourse(){
         return view("courseproject",[
             'courses'=>course::allData(),
