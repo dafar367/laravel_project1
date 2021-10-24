@@ -32,7 +32,7 @@
         {{-- <th>code </th> --}}
         <th>project</th>
         <th>semester</th>
-        <th>projek </th>
+        <th>mata kuliah </th>
         <th>description </th>
     </tr>
 
@@ -40,29 +40,22 @@
    @foreach ($projects as $pro)
    @php ($i = $loop->index)
         @php($i++)
-        @if($loop->even)
+        {{-- @if($loop->even)
             @php($semester = "EVEN")
         @else
             @php($semester = "ODD")
-        @endif
+        @endif --}}
         <tr>
-            <td>{{ $i }}</td>
+            <td>{{ $pro['id'] }}</td>
             {{-- <td>{{ $pro['code'] }}</td> --}}
             <td>
                 <a href="myproject/{{$pro['code']}}">
-                {{ $pro['title'] }}
+                {{ $pro['project'] }}
                 </a>
             </td>
-            <td>{{ $semester }}</td>
-            <td>{{ $pro['course'] }}</td>
-            <td>@if ($loop->first)
-                    My Very FIRST projects
-                @elseif ($loop->last)
-                    My LAST project
-                @else
-                    Lorem ipsum dolor sit amet
-                @endif
-            </td>
+            <td>{{ $pro['semester'] }}</td>
+            <td>{{ $pro['mata_kuliah'] }}</td>
+            <td>{{$pro['description']}}</td>
         </tr>
    @endforeach
 </table>

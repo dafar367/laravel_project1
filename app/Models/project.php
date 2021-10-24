@@ -9,37 +9,34 @@ class project extends Model
 {
     use HasFactory;
 
-    private static $projects = [
-        [
-            'title' => 'Calculator',
-            'code' => 'cal',
-            'course' => 'Algorith programming'
-        ],
-        [
-            'title' => 'Accounting',
-            'code' => 'acc',
-            'course' => 'web programming'
-        ],
-        [
-            'title' => 'student',
-            'code' => 'stu',
-            'course' => 'web programming'
-        ]
-    ];
+    protected $table = 'projects';
 
-    public static function allData(){
-        return collect (self::$projects);
-    }
+    // private static $projects = [
+    //     [
+    //         'title' => 'Calculator',
+    //         'code' => 'cal',
+    //         'course' => 'Algorith programming'
+    //     ],
+    //     [
+    //         'title' => 'Accounting',
+    //         'code' => 'acc',
+    //         'course' => 'web programming'
+    //     ],
+    //     [
+    //         'title' => 'student',
+    //         'code' => 'stu',
+    //         'course' => 'web programming'
+    //     ]
+    // ];
 
-    public static function dataWithCode($code){
-        $allProject = static::allData();
-        return $allProject->firstWhere('code', $code);
-        // foreach ($allProject as $pro){
-        //     if ($pro['code']=== $code){
-        //         return $pro;
-        //     }      
-        // }
-    }
+    // public static function allData(){
+    //     return collect (self::$projects);
+    // }
+
+    // public static function dataWithCode($code){
+    //     $allProject = static::allData();
+    //     return $allProject->firstWhere('code', $code);
+    // }
     
 
 }

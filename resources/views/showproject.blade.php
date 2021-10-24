@@ -8,9 +8,11 @@
 
     <div class="mt-9 p-5 bg-primary text-white rounded">
 
-        <h1>{{$projects['title']}}</h1>
-        <p>course: {{$projects['course']}}</p>
-        <p>code: {{$projects['code']}}</p>
+        <h1>{{$projects['mata_kuliah']}}</h1>
+        <p>course: {{$projects['code']}}</p>
+        <p>code: {{$projects['project']}}</p>
+        <p>code: {{$projects['description']}}</p>
+
     </div>
     
 @endsection

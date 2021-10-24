@@ -11,7 +11,7 @@ class courseController extends Controller
 
     public function show($code){
         return view("showcourse",[
-            'title' =>'project',
+            'title' =>'Courses',
             'courses'=>course::dataWithCode($code)
         ]);
     }

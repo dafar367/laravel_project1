@@ -2,7 +2,7 @@
 @section('title','project course')
 
 @section('main_content')
-    <table class="table table-striped">
+    <table class="table table-bordered">
         <tr>
             <th>No</th>
             <th>Mata kuliah</th>
@@ -16,26 +16,28 @@
             @php($i++)  @endphp --}}
             
         <tr>
-            {{-- @php
-                $lectureSize = sizeof($pro['guru'])
-            @endphp --}}
-            <td>{{$loop->index+1 }}</td>
-            <td>
+            @php
+                $lectureSize = sizeof($pro['guru']);
+            @endphp
+            <td rowspan="{{$lectureSize}}">{{$loop->index+1 }}</td>
+            <td rowspan="{{$lectureSize}}">
                 <a href="courseproject/{{$pro['code']}}">
                 {{ $pro['matkul'] }}
                 </a>
             </td>
-            <td>{{ $pro['guru'] }}</td>
-            <td>{{ $pro['sks'] }}</td>
+            <td>{{ $pro['guru'] [0]}}</td>
+            <td rowspan="{{$lectureSize}}">{{ $pro['sks'] }}</td>
         </tr>
 
-        {{-- @foreach ($pro['guru'] as $guru)
+        @foreach ($pro['guru'] as $guru)
+            @if ($loop->iteration>1)
             <tr>
                 <td>
                     {{$guru}}
                 </td>
             </tr>
-        @endforeach --}}
+            @endif
+        @endforeach
 
         @endforeach
     </table>

@@ -13,35 +13,35 @@ class course extends Model
         [
             'matkul' => 'web development',
             'code' => 'wevDev',
-            'guru' => 'Mrs Laura',
+            'guru' => ['Mrs Laura', 'Mr Evan'],
             'sks' => '6',
             'description' => 'mata kuliah yang mengajarkan web development'
         ],
         [
             'matkul' => 'Game Design',
             'code' => 'gameDes',
-            'guru' =>'Mr Yuwono',
+            'guru' =>['Mr Mychael', 'juyono'],
             'sks' => '4',
             'description' => 'mata kuliah yang mengajarkan game design'
         ],
         [
             'matkul' => 'Discreate math',
             'code' => 'disMath',
-            'guru' => 'Mrs Citra',
+            'guru' => ['Mrs Citra'],
             'sks' => '4',
             'description' => 'mata kuliah yang mengajarkan discreate math'
         ],
         [
             'matkul' => 'Mobile app development',
             'code' => 'mad',
-            'guru' => 'Mr Mychael',
+            'guru' => ['Mr Mychael'],
             'sks' => '4',
             'description' => 'mata kuliah yang mengajarkan web development'
         ],
         [
             'matkul' => 'Becoming Indo',
             'code' => 'bindo',
-            'guru' => 'Mrs citra',
+            'guru' => ['Mr Budi'],
             'sks' => '4',
             'description' => 'mata kuliah yang mengajarkan sejaran indo'
         ],

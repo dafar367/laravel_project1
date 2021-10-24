@@ -10,7 +10,15 @@
 
         <h1>{{$courses['matkul']}}</h1>
         <p>code: {{$courses['code']}}</p>
-        <p>guru: {{$courses['guru']}}</p>
+        <p>guru: 
+        @foreach ($courses['guru'] as $lecturer)
+            @if ($loop->iteration == $loop->last)
+                {{ $lecturer }}
+            @else
+                {{ $lecturer }},
+            @endif
+        @endforeach
+        </p>
         <p>sks: {{$courses['sks']}}</p>
         <p>description: {{$courses['description']}}</p>
 
