@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class projectController extends Controller
 {
+    public function createProject(){
+        return view("createProject", [
+        'title' =>'createProject'
+        ]);
+    }
+
     public function show($code){
         return view("showproject",[
             'title' =>'project',

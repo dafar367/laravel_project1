@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\projectController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\courseController;
+use App\Http\Controllers\ProjectResourceController;
 use App\Models\project;
 use App\Models\course;
 /*
@@ -21,9 +22,13 @@ Route::get('/', [Controller::class, 'home']);
 
 Route::get('/contact', [Controller::class, 'contact']);
 
-Route::get('/myproject', [projectController::class, 'indexProject']);
+// Route::get('/myproject', [projectController::class, 'indexProject']);
 
-Route::get('/myproject/{code}', [projectController::class,'show']);
+// Route::get('/createProject', [projectController::class, 'createProject']);
+
+// Route::get('/myproject/{code}', [projectController::class,'show']);
+
+Route::resource('/myproject', ProjectResourceController::class);
 
 Route::get('/courseproject', [courseController::class, 'indexCourse']);
 

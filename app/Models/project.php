@@ -9,7 +9,7 @@ class project extends Model
 {
     use HasFactory;
 
-    protected $table = 'projects';
+    protected $fillable = ['code', 'project', 'semester', 'mata_kuliah', 'description'];
 
     // private static $projects = [
     //     [

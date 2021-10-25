@@ -23,6 +23,7 @@
 </table>
 </div> --}}
 
+<div class="container"><a href="{{ route('myproject.create') }}"><button type="submit" class="btn btn-primary mb-2">Create Project</button></a> </div>
 
 <br>
 <br>
@@ -34,6 +35,7 @@
         <th>semester</th>
         <th>mata kuliah </th>
         <th>description </th>
+        <th>action</th>
     </tr>
 
    
@@ -56,6 +58,17 @@
             <td>{{ $pro['semester'] }}</td>
             <td>{{ $pro['mata_kuliah'] }}</td>
             <td>{{$pro['description']}}</td>
+            <td>
+                <div class="d-grid d-md-flex justify-content-center">
+                <a href="{{ route('myproject.show', $pro->code) }}"><button type="button" class="btn btn-info me-md-2">Show</button></a>
+                <a href="{{ route('myproject.edit', $pro['id']) }}"><button type="button" class="btn btn-warning me-md-2">Edit</button></a>
+                <form action="{{ route('myproject.destroy', $pro['id']) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+            </td>
         </tr>
    @endforeach
 </table>
