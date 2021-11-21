@@ -16,13 +16,14 @@ class CreateCoursesTable extends Migration
         Schema::create('courses', function (Blueprint $table) {
             
             $table->string('matkul');
-            $table->string('code');
+            $table->string('course_code');
             $table->string('guru');
             $table->Integer('sks');
             $table->text('description');
-            $table->primary('code');
+            $table->primary('course_code');
             $table->timestamps();
         });
+        
     }
 
     /**

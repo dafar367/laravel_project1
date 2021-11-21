@@ -17,7 +17,7 @@ class CourseSeeder extends Seeder
         //
         DB::table('courses')->insert([
             'matkul' => 'web development',
-            'code' => 'wevDev',
+            'course_code' => 'wevDev',
             'guru' => 'Mrs Laura',
             'sks' => 6,
             'description' => 'mata kuliah yang mengajarkan web development',
@@ -28,8 +28,8 @@ class CourseSeeder extends Seeder
         
         DB::table('courses')->insert([
             'matkul' => 'Game Design',
-            'code' => 'gameDes',
-            'guru' =>'Mr Yuwono; juyono',
+            'course_code' => 'gameDes',
+            'guru' =>'Mr Yuwono juyono',
             'sks' => 4,
             'description' => 'mata kuliah yang mengajarkan game design',
             'created_at' => \Carbon\Carbon::now(),
@@ -39,7 +39,7 @@ class CourseSeeder extends Seeder
 
         DB::table('courses')->insert([
             'matkul' => 'Discreate math',
-            'code' => 'disMath',
+            'course_code' => 'disMath',
             'guru' => 'Mrs Citra',
             'sks' => 4,
             'description' => 'mata kuliah yang mengajarkan discreate math',

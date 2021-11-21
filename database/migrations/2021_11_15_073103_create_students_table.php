@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProjectsTable extends Migration
+class CreateStudentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateProjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('projects', function (Blueprint $table) {
-            $table->id();
-            $table->string('code');
-            $table->string('project');
-            $table->text('description');
+        Schema::create('students', function (Blueprint $table) {
+            $table->string('nim')->primary();
+            $table->string('nama');
+            $table->string('alamat');
+            $table->string('no_telp');
+            $table->string('tgl_lahir');
+            $table->string('jurusan');
             $table->timestamps();
         });
-
-        
     }
 
     /**
@@ -31,6 +31,6 @@ class CreateProjectsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('projects');
+        Schema::dropIfExists('students');
     }
 }

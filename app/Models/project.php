@@ -8,9 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class project extends Model
 {
     use HasFactory;
+    
 
     protected $fillable = ['code', 'project', 'semester', 'mata_kuliah', 'description'];
 
+    public function course(){
+        return $this->belongsTo(course::class, 'mata_kuliah', 'course_code');
+    }
+
+    public function students(){
+        return $this->belongsToMany(student::class, 'members', 'project_id', 'nim')->withPivot('created_at');
+    }
     // private static $projects = [
     //     [
     //         'title' => 'Calculator',

@@ -51,12 +51,15 @@
             <td>{{ $pro['id'] }}</td>
             {{-- <td>{{ $pro['code'] }}</td> --}}
             <td>
-                <a href="myproject/{{$pro['code']}}">
                 {{ $pro['project'] }}
-                </a>
             </td>
             <td>{{ $pro['semester'] }}</td>
-            <td>{{ $pro['mata_kuliah'] }}</td>
+            {{-- <td>{{ $pro['mata_kuliah'] }}</td> --}}
+            <td>
+                <a href="{{route('courseproject.show', $pro->course->course_code)}}">
+                    {{$pro->course->matkul}}
+                </a>
+            </td>
             <td>{{$pro['description']}}</td>
             <td>
                 <div class="d-grid d-md-flex justify-content-center">

@@ -12,15 +12,17 @@ class courseController extends Controller
     public function show($code){
         return view("showcourse",[
             'title' =>'Courses',
-            'courses'=>course::dataWithCode($code)
+            'courses'=>course::where('course_code', $code)->get()->first()
         ]);
     }
 
 
     public function indexCourse(){
+        $Course = course::all();
         return view("courseproject",[
-            'courses'=>course::allData(),
+            'courses'=>$Course,
             'title' =>'Courses'
         ]);
+        return view('courseproject', compact('courses', 'title'));
     }
 }

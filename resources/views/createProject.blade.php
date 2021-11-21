@@ -43,7 +43,12 @@
 
                 <label for="" class="label-control">mata kuliah</label>
 
-                <input name="mataKuliah" class="form-control">
+                <select name="mataKuliah" class="form-control">
+                    <option value="" selected disabled hidden>pilih sini gan</option>
+                    @foreach ($courses as $course)
+                                <option value="{{ $course['course_code'] }}">{{ $course['matkul'] }}</option>
+                    @endforeach
+                </select>
 
             </div>
 

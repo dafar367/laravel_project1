@@ -13,8 +13,11 @@
         <li class="nav-item">
           <a class="nav-link @if($title == "Courses"){{"active"}}@endif" href="/courseproject">Course project</a>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
           <a class="nav-link @if($title == "createProject"){{"active"}}@endif" href="/createProject">Create project</a>
+        </li> --}}
+        <li class="nav-item">
+          <a class="nav-link @if($title == "student"){{"active"}}@endif" href="/student">student</a>
         </li>
       </ul>
 </div>

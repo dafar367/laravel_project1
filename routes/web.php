@@ -5,6 +5,9 @@ use App\Http\Controllers\projectController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\courseController;
 use App\Http\Controllers\ProjectResourceController;
+use App\Http\Controllers\CourseResourceController;
+use App\Http\Controllers\studentController;
+use App\Http\Controllers\memberController;
 use App\Models\project;
 use App\Models\course;
 /*
@@ -30,6 +33,10 @@ Route::get('/contact', [Controller::class, 'contact']);
 
 Route::resource('/myproject', ProjectResourceController::class);
 
-Route::get('/courseproject', [courseController::class, 'indexCourse']);
+// Route::get('/courseproject', [courseController::class, 'indexCourse']);
 
-Route::get('/courseproject/{code}', [courseController::class,'show']);
+// Route::get('/courseproject/{code}', [courseController::class,'show']);
+
+Route::resource('/courseproject', CourseResourceController::class);
+Route::resource('/student', studentController::class);
+Route::resource('/member', memberController::class);

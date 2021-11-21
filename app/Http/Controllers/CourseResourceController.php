@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Project;
 use App\Models\course;
 use Illuminate\Support\Str;
 
 
-class ProjectResourceController extends Controller
+class CourseResourceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,14 +17,12 @@ class ProjectResourceController extends Controller
     public function index()
     {
         //
-        $Project = project::all();
-        $title = 'project';
-        return view("myproject",[
-            // 'projects'=>project::allData(),
-            'title' =>'project',
-            'projects' => $Project
-            
+        $course = course::all();
+        return view("courseproject",[
+            'courses'=>$course,
+            'title' =>'Courses'
         ]);
+        return view('courseproject', compact('courses', 'title'));
     }
 
     /**
@@ -36,10 +33,8 @@ class ProjectResourceController extends Controller
     public function create()
     {
         //
-        $courses = course::all();
-        return view("createProject", [
-            'title' =>'createProject',
-            'courses' => $courses
+        return view("createcourse", [
+            'title' =>'createcourse'
             ]);
     }
 
@@ -52,14 +47,15 @@ class ProjectResourceController extends Controller
     public function store(Request $request)
     {
         //
-        project::create([
-            'code' => Str::upper(Str::substr($request->project, 0, 3)), 
-            'project' => $request->project,
-            'semester' => $request->semester,
-            'mata_kuliah' => $request->mataKuliah,
+
+        course::create([
+            'course_code' => Str::upper(Str::substr($request->matkul, 0, 6)),
+            'matkul' => $request->matkul,
+            'guru' => $request->guru,
+            'sks' => $request->sks,
             'description' => $request->description
         ]);
-        return redirect(route('myproject.index'));
+        return redirect(route('courseproject.index'));
     }
 
     /**
@@ -68,15 +64,13 @@ class ProjectResourceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($code)
+    public function show($id)
     {
         //
-        
-        return view("showproject",[
-            'title' =>'project',
-            'projects'=>project::where('code',$code)
-            // pake first
-            ->get()->first()
+        $course = course::where('course_code', $id)->get()->first();
+        return view("showcourse",[
+            'title' =>'Courses',
+            'courses'=> $course
         ]);
     }
 
@@ -89,13 +83,12 @@ class ProjectResourceController extends Controller
     public function edit($id)
     {
         //
-        $project = project::findOrFail($id);
-        return view("editProject",[
+        $course = course::findOrFail($id);
+        return view("editcourse",[
             'title' =>'editproject',
-            'project'=> $project
+            'course'=> $course
         ]);
         
-        //return view('editProject', compact('project'));
     }
 
     /**
@@ -108,16 +101,16 @@ class ProjectResourceController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $code = Str::upper(Str::substr($request->project,0,3));
-        $project = project::findOrFail($id);
-        $project->update([
-            'project' => $request->project,
-            'semester' => $request->semester,
-            'mata_kuliah' => $request->mataKuliah,
+        $course = course::findOrFail($id);
+        $course->update([
+            'course_code' => Str::upper(Str::substr($request->matkul,0,3)),
+            'matkul' => $request->matkul,
+            'guru' => $request->guru,
+            'sks' => $request->sks,
             'description' => $request->description
         ]);
 
-        return redirect(route('myproject.index'));
+        return redirect(route('courseproject.index'));
     }
 
     /**
@@ -129,8 +122,8 @@ class ProjectResourceController extends Controller
     public function destroy($id)
     {
         //
-        $project = project::findOrFail($id);
-        $project->delete();
-        return redirect(route('myproject.index'));
+        $course = course::findOrFail($id);
+        $course->delete();
+        return redirect(route('courseproject.index'));
     }
 }

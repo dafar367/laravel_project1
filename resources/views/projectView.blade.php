@@ -1,18 +1,14 @@
-@extends('layout.mainlayout')
-@section('title','project')
+@extends('layouts.app')
 
-@section('page_title')
-    <h1>detail project </h1>
-@endsection
-@section('main_content')
-
-    <div class="mt-9 p-5 bg-primary text-white rounded">
-
-        {{-- <h1>{{$projects['mata_kuliah']}}</h1> --}}
-        <h1>{{$projects->course->matkul}}</h1>
-        <p>course: {{$projects['project']}}</p>
-        <p>code: {{$projects['code']}}</p>
-        <p>description: {{$projects['description']}}</p>
+@section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+            <h1>Detail Project {{ $project['code'] }}</h1>
+            <p><b>Nama project: </b>{{ $project['project'] }}</p>
+            <p><b>Semester: </b>{{ $project['semester'] }}</p>
+            <p><b>Mata kuliah: </b>{{ $project->course->course_name }}</p>
+            <p><b>Description: </b>{{ $project['description'] }}</p>
+        </div>
 
         <div class="row">
             <b>List Member</b>
@@ -27,7 +23,7 @@
                 </thead>
                 <tbody>
                     @php $index = 1 @endphp
-                    @foreach ($projects->students as $student)
+                    @foreach ($project->students as $student)
                         <tr>
                             <th scope="row">{{ $index }}</th>
                             @php $index++ @endphp
@@ -40,5 +36,6 @@
             </table>
         </div>
     </div>
-    
+
+
 @endsection

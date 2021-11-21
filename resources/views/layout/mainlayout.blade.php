@@ -8,8 +8,8 @@
     <title>@yield('title')</title>
 </head>
 <body>
-    @include('layout.navigation')
     <div class="container pt-5">
+    @include('layout.navigation')
         @yield('page_title')
         @yield('main_content')
     </div>
